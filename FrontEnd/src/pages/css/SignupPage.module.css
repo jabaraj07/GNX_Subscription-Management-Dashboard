@@ -1,0 +1,125 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f0;
+  padding: 1rem;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 0.5px solid rgba(0, 0, 0, 0.12);
+  padding: 2rem 2.25rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.heading {
+  font-size: 22px;
+  font-weight: 500;
+  color: #1a1a18;
+  margin: 0 0 0.25rem;
+}
+
+.subheading {
+  font-size: 14px;
+  color: #6b6b67;
+  margin: 0 0 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #3a3a38;
+}
+
+.input {
+  height: 38px;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 0.5px solid rgba(0, 0, 0, 0.25);
+  font-size: 14px;
+  color: #1a1a18;
+  background-color: #ffffff;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input::placeholder {
+  color: #a8a8a4;
+}
+
+.input:hover {
+  border-color: rgba(0, 0, 0, 0.4);
+}
+
+.input:focus {
+  border-color: #534ab7;
+  box-shadow: 0 0 0 3px rgba(83, 74, 183, 0.12);
+}
+
+.errorMessage {
+  font-size: 12px;
+  color: #a32d2d;
+  margin: 0;
+}
+
+.submitButton {
+  height: 40px;
+  border-radius: 8px;
+  border: 0.5px solid rgba(0, 0, 0, 0.25);
+  background-color: #534ab7;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+  margin-top: 0.25rem;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: #3c3489;
+}
+
+.submitButton:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.submitButton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.loginRow {
+  margin-top: 1.25rem;
+  text-align: center;
+  font-size: 13px;
+  color: #6b6b67;
+}
+
+.loginRow a {
+  color: #534ab7;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.loginRow a:hover {
+  text-decoration: underline;
+}

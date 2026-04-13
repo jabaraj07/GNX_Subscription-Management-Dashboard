@@ -1,0 +1,178 @@
+.container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+  background-color: #f5f5f0;
+}
+.header {
+  margin-bottom: 2rem;
+}
+
+.heading {
+  font-size: 22px;
+  font-weight: 500;
+  color: #1a1a18;
+  margin: 0 0 0.25rem;
+}
+
+.subheading {
+  font-size: 14px;
+  color: #6b6b67;
+  margin: 0;
+}
+
+.emptyCard,
+.planCard {
+  width: 100%;
+}
+
+/* ── No plan state ── */
+.emptyCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 0.5px solid rgba(0, 0, 0, 0.12);
+  padding: 2.5rem 2rem;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.emptyIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #eeedfe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emptyIconSvg {
+  width: 20px;
+  height: 20px;
+  stroke: #534ab7;
+}
+
+.emptyTitle {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1a18;
+  margin: 0;
+}
+
+.emptyText {
+  font-size: 13px;
+  color: #6b6b67;
+  margin: 0;
+}
+
+.emptyButton {
+  margin-top: 0.5rem;
+  height: 36px;
+  padding: 0 1.25rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #534ab7;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.emptyButton:hover {
+  background-color: #3c3489;
+}
+
+.emptyButton:active {
+  transform: scale(0.98);
+}
+
+/* ── Plan card ── */
+.planCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 0.5px solid rgba(0, 0, 0, 0.12);
+  padding: 1.5rem 1.75rem;
+  max-width: 480px;
+}
+
+.planCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.planCardTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1a1a18;
+  margin: 0;
+}
+
+.statusBadge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: capitalize;
+}
+
+.statusActive {
+  background-color: #eaf3de;
+  color: #3b6d11;
+}
+
+.statusExpired {
+  background-color: #fcebeb;
+  color: #a32d2d;
+}
+
+.statusInactive {
+  background-color: #f1efe8;
+  color: #5f5e5a;
+}
+
+.divider {
+  border: none;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.1);
+  margin: 0 0 1.25rem;
+}
+
+.planRows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.planRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.planRowLabel {
+  font-size: 13px;
+  color: #6b6b67;
+}
+
+.planRowValue {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1a18;
+}
+
+.planPrice {
+  font-size: 15px;
+  font-weight: 500;
+  color: #534ab7;
+}

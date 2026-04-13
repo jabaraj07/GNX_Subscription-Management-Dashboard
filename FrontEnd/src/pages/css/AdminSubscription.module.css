@@ -1,0 +1,72 @@
+.container {
+  padding: 20px;
+  background: #f5f7fb;
+  /* min-height: 100vh; */
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #2f3a40;
+}
+
+.empty {
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  color: #777;
+}
+
+/* Table wrapper for responsiveness */
+.tableWrapper {
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Table styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.table th {
+  background: #f0f2f5;
+  text-align: left;
+  padding: 12px;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+}
+
+.table td {
+  padding: 12px;
+  font-size: 14px;
+  color: #555;
+  border-bottom: 1px solid #eee;
+}
+
+.table tr:hover {
+  background: #fafafa;
+}
+
+/* Status badges */
+.status {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.active {
+  background: #e6f7ee;
+  color: #1a7f37;
+}
+
+.inactive {
+  background: #fde8e8;
+  color: #c53030;
+}
