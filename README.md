@@ -15,6 +15,13 @@ The backend exposes REST API routes under `/api`, while the frontend consumes th
 - `Backend/` - Node.js + Express backend
 - `FrontEnd/` - React application built with Vite
 
+## Tech Stack
+
+- Backend: Node.js, Express, MongoDB, Mongoose, JWT, bcrypt, cookie-parser
+- Frontend: React, Vite, React Router, Zustand, React Hook Form, Axios, React Toastify
+- Validation: Zod
+- Deployment: Vercel (frontend) / any Node.js-compatible host for backend
+
 ## Backend Features
 
 - User registration and login with JWT authentication
@@ -124,3 +131,9 @@ http://localhost:5000/api
 - Ensure `CLIENT_URL` in `Backend/.env` matches the frontend origin (for example `http://localhost:5173`).
 - If using Postman, enable cookie support to preserve authenticated sessions for protected routes.
 - The frontend app should be started after the backend is running.
+
+## Maintainer
+
+- Name: `jebaraj k`
+- Contact: https://github.com/jabaraj07
+- Email: raj07.182000@gmail.com
