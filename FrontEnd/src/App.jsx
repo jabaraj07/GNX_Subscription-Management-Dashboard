@@ -15,14 +15,14 @@ import UnauthorizePage from "./pages/UnauthorizePage.jsx";
 import AdminLayout from "./component/AdminLayout.jsx";
 import AdminSubscription from "./pages/AdminSubscription.jsx";
 import NotFound from "./pages/NotFound.jsx";
-import HomeRedirect from "./component/HomeRedirect.jsx";
+// import HomeRedirect from "./component/HomeRedirect.jsx";
 
 function App() {
   return (
     <BrowserRouter>
       <ToastContainer />
       <Routes>
-        <Route path="/" element={<HomeRedirect />} />
+        {/* <Route path="/" element={<HomeRedirect />} /> */}
         <Route path="/register" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
 
