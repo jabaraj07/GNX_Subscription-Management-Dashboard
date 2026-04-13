@@ -29,11 +29,11 @@ function App() {
         <Route
           path="/dashboard"
           element={
-            <ProtectedRoute>
+            // <ProtectedRoute>
               <AppLayout>
                 <DashboardPage />
               </AppLayout>
-            </ProtectedRoute>
+            // </ProtectedRoute>
           }
         />
 
