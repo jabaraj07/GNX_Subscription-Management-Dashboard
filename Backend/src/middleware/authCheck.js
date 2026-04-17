@@ -6,8 +6,8 @@ export const validateAuth = (req,res,next) =>{
         if(!Token){
             return res.status(401).json({message:"UnAuthorize Token missing"})
         }
-        const decoded = jwt.decode(Token);
-        req.user = decoded;
+        const Decode = jwt.verify(Token,process.env.ACCESS_TOKEN_SECRET);        
+        req.user = Decode;
         next()
     } catch (error) {
         console.log("Error in ValidateAuth : ",error);

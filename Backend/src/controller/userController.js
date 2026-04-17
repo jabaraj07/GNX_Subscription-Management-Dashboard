@@ -70,7 +70,7 @@ export const LoginUser = async (req, res) => {
     isUserExist.password = undefined;
     return res.status(200).json({
       message: "User Login Successfully",
-      user:isUserExist
+      user: isUserExist,
     });
   } catch (error) {
     console.log("Error in Login Controller ", error);
@@ -91,28 +91,26 @@ export const LogoutUser = (req, res) => {
 
 export const RefreshToken = async (req, res) => {
   try {
-    const refreshToken = req.cookies.RefreshToken;    
-
+    const refreshToken = req.cookies.RefreshToken;
     if (!refreshToken) {
       return res.status(401).json({ message: "Refresh token missing" });
     }
 
     const decoded = jwt.verify(refreshToken, jwtConfig.refreshSecret);
 
-    const existUser = await user.findById(decoded.Id);    
+    const existUser = await user.findById(decoded.Id);
 
     if (!existUser) {
       return res.status(401).json({ message: "Unauthorized" });
     }
 
-    const newAccessToken = generateAccessToken(existUser);    
+    const newAccessToken = generateAccessToken(existUser);
 
     res.cookie("AccessToken", newAccessToken, cookieConfig.access);
 
     return res.status(200).json({
       message: "Token refreshed successfully",
-    });
-
+    });    
   } catch (error) {
     console.log("Error in RefreshToken Controller", error);
     return res.status(401).json({ message: "Invalid refresh token" });

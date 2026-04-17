@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useAuthStore from "../store/authStore";
 import { Navigate } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
 
 const ProtectedRoute = ({ children }) => {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const loading = useAuthStore((state) => state.loading);
+  const checkAuth = useAuthStore((state) => state.checkAuth);
 
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
-  }
+  useEffect(() => {
+    checkAuth();
+  }, []);
+
   if (loading) {
     return (
       <p
@@ -19,10 +22,15 @@ const ProtectedRoute = ({ children }) => {
           height: "100vh",
         }}
       >
-        Loading...
+        <ClipLoader size={40} />
       </p>
     );
   }
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+
   return children;
 };
 

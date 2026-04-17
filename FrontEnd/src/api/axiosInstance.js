@@ -33,8 +33,9 @@ axiosInstance.interceptors.response.use(
         } catch (e) {
           console.log("Logout failed");
         }
-
-        window.location.href = "/login";
+        if (window.location.pathname !== "/login") {
+          window.location.replace("/login");
+        }
 
         return Promise.reject(err);
       }

@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useAuthStore from "../store/authStore";
-import { Navigate, Outlet  } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
 
-const RoleProtectedRoute = ({ allowedRoles,children }) => {
+
+const RoleProtectedRoute = ({ allowedRoles, children }) => {
   const isAuthenticate = useAuthStore((state) => state.isAuthenticated);
   const loading = useAuthStore((state) => state.loading);
   const user = useAuthStore((state) => state.user);
-  if (!isAuthenticate) {
-    return <Navigate to="/login" replace />;
-  }
+  const checkAuth = useAuthStore((state) => state.checkAuth);
+
+  useEffect(() => {
+    checkAuth();
+  }, []);
+
   if (loading) {
     return (
       <p
@@ -19,9 +24,13 @@ const RoleProtectedRoute = ({ allowedRoles,children }) => {
           height: "100vh",
         }}
       >
-        Loading...
+        <ClipLoader size={40}/>
       </p>
     );
+  }
+
+  if (!isAuthenticate) {
+    return <Navigate to="/login" replace />;
   }
 
   if (!allowedRoles.includes(user?.role)) {

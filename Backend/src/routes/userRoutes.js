@@ -4,7 +4,7 @@ import {
   LoginUser,
   LogoutUser,
   RefreshToken,
-  getCurrentUser
+  getCurrentUser,
 } from "../controller/userController.js";
 import { validation } from "../middleware/validation.js";
 import {
@@ -12,14 +12,16 @@ import {
   UserValidation,
 } from "../validation/userValidation.js";
 import { validateAuth } from "../middleware/authCheck.js";
+import noCache from "../middleware/noCache.js";
 const router = express.Router();
 
 router.post("/auth/register", validation(UserValidation), RegisterUser);
 router.post("/auth/login", validation(LoginValidation), LoginUser);
-
-router.post("/logout", validateAuth, LogoutUser);
 router.post("/refresh", RefreshToken);
 
-router.get("/me",validateAuth,getCurrentUser)
+router.use(noCache);
+
+router.post("/logout", validateAuth, LogoutUser);
+router.get("/me", validateAuth, getCurrentUser);
 
 export default router;

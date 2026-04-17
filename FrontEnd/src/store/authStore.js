@@ -1,6 +1,5 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import axiosInstance from "../api/axiosInstance";
 import { getCurrentUserApi, LogoutApi } from "../api/authApi";
 
 const useAuthStore = create(
@@ -8,7 +7,7 @@ const useAuthStore = create(
     (set) => ({
       user: null,
       isAuthenticated: false,
-      loading: false,
+      loading: true,
 
       login: (user) => {
         set({
