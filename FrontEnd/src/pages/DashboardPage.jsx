@@ -1,24 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getCurrentSubscription } from "../api/subscriptionApi";
 import styles from "./css/DashboardPage.module.css";
+import usePlanStore from "../store/planStore";
+import { ClipLoader } from "react-spinners";
 
 const DashboardPage = () => {
-  const [currentPlan, setCurrentPlan] = useState(null);
   const navigate = useNavigate();
-
-  const fetchCurrentPlan = async () => {
-    try {
-      const res = await getCurrentSubscription();
-      setCurrentPlan(res);
-    } catch (error) {
-      console.log("Error while fetching plan:", error);
-    }
-  };
+  const fetchCurrentPlan = usePlanStore((state) => state.fetchCurrentPlan);
+  const currentPlan = usePlanStore((state) => state.CurrentPlan);
+  const loading = usePlanStore((state) => state.loading);
 
   useEffect(() => {
-    fetchCurrentPlan();
+    if (!currentPlan) {
+      fetchCurrentPlan();
+    }
   }, []);
+
+  if(loading){
+    return (
+      <div className={styles.container}>
+        <ClipLoader size={40}/>
+      </div>
+    )
+  }
 
   const getStatusClass = (status) => {
     if (status === "active") return styles.statusActive;
@@ -30,7 +34,9 @@ const DashboardPage = () => {
     <div className={styles.container}>
       <div className={styles.header}>
         <h1 className={styles.heading}>Dashboard</h1>
-        <p className={styles.subheading}>Manage your subscription and account</p>
+        <p className={styles.subheading}>
+          Manage your subscription and account
+        </p>
       </div>
 
       {!currentPlan ? (
@@ -76,7 +82,9 @@ const DashboardPage = () => {
           <div className={styles.planRows}>
             <div className={styles.planRow}>
               <span className={styles.planRowLabel}>Plan</span>
-              <span className={styles.planRowValue}>{currentPlan?.plan?.name}</span>
+              <span className={styles.planRowValue}>
+                {currentPlan?.plan?.name}
+              </span>
             </div>
 
             <div className={styles.planRow}>

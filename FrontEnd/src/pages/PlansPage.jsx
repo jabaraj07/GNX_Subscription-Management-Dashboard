@@ -1,25 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { getAllPlansApi } from "../api/planApi";
+import React, { useEffect } from "react";
 import { SubscribeAPi } from "../api/subscriptionApi";
 import { toast } from "react-toastify";
 import styles from "./css/PlansPage.module.css";
+import usePlanStore from "../store/planStore";
+import { ClipLoader } from "react-spinners";
 
 const PlansPage = () => {
-  const [plans, setPlans] = useState([]);
-
-  const fetchAllPlans = async () => {
-    try {
-      const res = await getAllPlansApi();
-      setPlans(res);
-    } catch (error) {
-      console.log("Error while fetching plans:", error);
-      toast.error(error.response?.data?.message || "Something went wrong");
-    }
-  };
+  const plans = usePlanStore((state) => state.AllPlans);
+  const fetchAllPlans = usePlanStore((state) => state.fetchFullPlans);
+  const loading = usePlanStore((state) => state.loading);
 
   useEffect(() => {
-    fetchAllPlans();
+    if (!plans || plans.length === 0) {
+      fetchAllPlans();
+    }
   }, []);
+
+  if (loading) {
+    return (
+      <div className={styles.container}>
+        <ClipLoader size={40} />
+      </div>
+    );
+  }
 
   const handlePurchase = async (id) => {
     try {
